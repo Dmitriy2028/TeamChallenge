@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: common
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false

@@ -1,1 +1,3 @@
-rootProject.name = 'server'
+rootProject.name = 'spring-micro'
+include 'eureka-server', 'user-service', 'cart-service', 'catalog-service', 'api-gateway', 'common', 'auth-service'
+
