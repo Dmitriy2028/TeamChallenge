@@ -1,0 +1,14 @@
+# Use an official OpenJDK runtime as a parent image
+FROM openjdk:17-jre-slim
+# Create directories for auth-service, user-service, and cart-service
+RUN mkdir /app
+# Copy the jar files for auth-service, user-service, and cart-service into the container
+COPY auth-service/build/libs/auth-service-0.0.1-SNAPSHOT.jar /app/auth-service.jar
+COPY user-service/build/libs/user-service-0.0.1-SNAPSHOT.jar /app/user-service.jar
+COPY cart-service/build/libs/cart-service-0.0.1-SNAPSHOT.jar /app/cart-service.jar
+# Expose the necessary ports
+EXPOSE 8081
+EXPOSE 8082
+EXPOSE 8083
+# Start auth-service, user-service, and cart-service
+CMD ["sh", "-c", "java -jar /app/auth-service.jar & java -jar /app/user-service.jar & java -jar /app/cart-service.jar"]

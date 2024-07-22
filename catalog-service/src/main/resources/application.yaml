@@ -1,6 +1,6 @@
 
 server:
-  port: 0
+  port: 8084
 
 jwt:
   secret: as542d54fkja656s7h6ndfjas1241234kdnsadiojfkjasdk1123rjkj34

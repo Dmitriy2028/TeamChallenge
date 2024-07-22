@@ -1,0 +1,10 @@
+# Use an official OpenJDK runtime as a parent image
+FROM openjdk:17-jre-slim
+# Create directory for catalog-service
+RUN mkdir /app
+# Copy the jar file for catalog-service into the container
+COPY catalog-service/build/libs/catalog-service-0.0.1-SNAPSHOT.jar /app/catalog-service.jar
+# Expose the necessary port
+EXPOSE 8084
+# Start catalog-service
+CMD ["java", "-jar", "/app/catalog-service.jar"]

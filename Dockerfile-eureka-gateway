@@ -1,0 +1,12 @@
+# Use an official OpenJDK runtime as a parent image
+FROM openjdk:17-slim
+# Create directories for eureka-server and api-gateway
+RUN mkdir /app
+# Copy the jar files for eureka-server and api-gateway into the container
+COPY eureka-server/build/libs/eureka-server-0.0.1-SNAPSHOT.jar /app/eureka-server.jar
+COPY api-gateway/build/libs/api-gateway-0.0.1-SNAPSHOT.jar /app/api-gateway.jar
+# Expose the necessary ports
+EXPOSE 8761
+EXPOSE 8765
+# Start eureka-server and api-gateway
+CMD ["sh", "-c", "java -jar /app/eureka-server.jar & java -jar /app/api-gateway.jar"]
