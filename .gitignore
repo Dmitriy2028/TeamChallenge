@@ -35,3 +35,5 @@ out/
 
 ### VS Code ###
 .vscode/
+/.env
+/tc-kp-1.pem

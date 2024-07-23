@@ -8,5 +8,8 @@ COPY api-gateway/build/libs/api-gateway-0.0.1-SNAPSHOT.jar /app/api-gateway.jar
 # Expose the necessary ports
 EXPOSE 8761
 EXPOSE 8765
+
+ENV JWT_SECRET=${JWT_SECRET}
+ENV JWT_LIFETIME=${JWT_LIFETIME}
 # Start eureka-server and api-gateway
 CMD ["sh", "-c", "java -jar /app/eureka-server.jar & java -jar /app/api-gateway.jar"]

@@ -3,13 +3,19 @@ FROM openjdk:17-slim
 # Create directories for auth-service, user-service, and cart-service
 RUN mkdir /app
 # Copy the jar files for auth-service, user-service, and cart-service into the container
+COPY eureka-server/build/libs/eureka-server-0.0.1-SNAPSHOT.jar /app/eureka-server.jar
+COPY api-gateway/build/libs/api-gateway-0.0.1-SNAPSHOT.jar /app/api-gateway.jar
 COPY auth-service/build/libs/auth-service-0.0.1-SNAPSHOT.jar /app/auth-service.jar
 COPY user-service/build/libs/user-service-0.0.1-SNAPSHOT.jar /app/user-service.jar
 COPY cart-service/build/libs/cart-service-0.0.1-SNAPSHOT.jar /app/cart-service.jar
+COPY catalog-service/build/libs/catalog-service-0.0.1-SNAPSHOT.jar /app/catalog-service.jar
 # Expose the necessary ports
+EXPOSE 8761
+EXPOSE 8765
 EXPOSE 8081
 EXPOSE 8082
 EXPOSE 8083
+EXPOSE 8084
 
 ENV DATABASE_URL=${DATABASE_URL}
 ENV DATABASE_USERNAME=${DATABASE_USERNAME}
@@ -17,4 +23,4 @@ ENV DATABASE_PASSWORD=${DATABASE_PASSWORD}
 ENV JWT_SECRET=${JWT_SECRET}
 ENV JWT_LIFETIME=${JWT_LIFETIME}
 # Start auth-service, user-service, and cart-service
-CMD ["sh", "-c", "java -jar /app/auth-service.jar & java -jar /app/user-service.jar & java -jar /app/cart-service.jar"]
+CMD ["sh", "-c", "java -jar /app/eureka-server.jar & java -jar /app/api-gateway.jar & java -jar /app/auth-service.jar & java -jar /app/user-service.jar & java -jar /app/cart-service.jar & java -jar /app/catalog-service.jar"]

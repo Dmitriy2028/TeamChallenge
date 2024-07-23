@@ -1,0 +1,28 @@
+services:
+  teamchallenge-all:
+    image: dmitriy2028/teamchallenge-all
+    container_name: eureka-gateway
+    environment:
+      - DATABASE_URL=${DATABASE_URL}
+      - DATABASE_USERNAME=${DATABASE_USERNAME}
+      - DATABASE_PASSWORD=${DATABASE_PASSWORD}
+      - JWT_SECRET=${JWT_SECRET}
+      - JWT_LIFETIME=${JWT_LIFETIME}
+    ports:
+      - "8761:8761"
+      - "8765:8765"
+
+
+services:
+  teamchallenge-all:
+    image: dmitriy2028/teamchallenge-all
+    container_name: eureka-gateway
+    environment:
+      - DATABASE_URL=jdbc:postgresql://dpg-cq33sucs1f4s73f8409g-a.frankfurt-postgres.render.com/teamchallenge_k3zv
+      - DATABASE_USERNAME=teamchallenge_user
+      - DATABASE_PASSWORD=zF6CNIAm08bu3ihy3kjRukkxMtDMJBuV
+      - JWT_SECRET=as542d54fkja656s7h6ndfjas1241234kdnsadiojfkjasdk1123rjkj33
+      - JWT_LIFETIME=7d
+    ports:
+      - "8761:8761"
+      - "8765:8765"
