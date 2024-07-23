@@ -32,3 +32,13 @@ dependencies {
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+// Не указываем mainClass для bootJar, чтобы избежать ошибок
+bootJar {
+    enabled = false
+}
+
+// Не создаем JAR-файл с главной точкой входа
+jar {
+    enabled = true
+}
