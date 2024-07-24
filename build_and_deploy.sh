@@ -10,9 +10,9 @@ source .env
 ./gradlew build -x test
 
 # Построить Docker образы
-docker build -f Dockerfile-eureka-gateway -t dmitriy2028/eureka-gateway .
-docker build -f Dockerfile-auth-user-cart -t dmitriy2028/auth-user-cart .
-docker build -f Dockerfile-catalog -t dmitriy2028/catalog .
+docker build -f Dockerfile-eureka-gateway -t dmitriy2028/teamchallenge-eureka-gateway .
+docker build -f Dockerfile-auth-user-cart -t dmitriy2028/teamchallenge-auth-user-cart .
+docker build -f Dockerfile-catalog -t dmitriy2028/teamchallenge-catalog .
 
 # Запустить контейнеры
-docker-compose up -d
+#docker-compose up -d
