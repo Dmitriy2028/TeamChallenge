@@ -37,10 +37,10 @@ public class AdminController {
         return ResponseEntity.ok(cartService.getAllCartHeaders());
     }
 
-    @PostMapping("/cart/create-cart")
-    public ResponseEntity<Long> createCart(@RequestBody CartHeader cart) {
-        return ResponseEntity.ok(cartService.saveCartHeader(cart));
-    }
+//    @PostMapping("/cart/create-cart")
+//    public ResponseEntity<Long> createCart(@RequestBody CartHeader cart) {
+//        return ResponseEntity.ok(cartService.saveCartHeader(cart));
+//    }
 
     @DeleteMapping("/cart/delete-cart/{id}")
     public ResponseEntity<String> deleteCart(@PathVariable Long id) {
